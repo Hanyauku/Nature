@@ -15,7 +15,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<div class="container">
   		<div class="row">
     		<div class="col">
-      			1 of 2
+				<div id="map"></div>
+			    <script>
+			      var map;
+			      function initMap() {
+			        map = new google.maps.Map(document.getElementById('map'), {
+			          center: {lat: 10.037054, lng: -83.350640},
+			          zoom: 8,
+					  mapTypeId: 'satellite'
+			        });
+			      }
+			    </script>
     		</div>
     		<div class="col">
     		<div class="content">
@@ -33,5 +43,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     		</div>
   		</div>
 	</div>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAICFxqTR1DqfTU7GzNyxRyJTNYrCSaCao&callback=initMap"
+	async defer></script>
 </body>
 </html>
