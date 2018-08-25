@@ -1,0 +1,24 @@
+body {
+    margin: 0px auto;
+    width: 98%;
+    height: 98%;
+    /*background-color: #00FF00;*/
+}
+.content {
+    color: white;
+    background-color: #00FF00;
+    display: inline-block;
+    padding-top: 20%;
+    height: 98%;
+    padding-bottom: 20%;
+    padding-right: 5%;
+    padding-left: 5%;
+}
+.btn {
+    color: #32CD32;
+    background-color: white;
+}
+input {
+    color: white;
+    background-color: #32CD32;
+}
