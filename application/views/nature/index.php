@@ -12,9 +12,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-	<div class="container">
-			<div id="map"></div>
-			<script>
+  		<div class="row">
+    		<div class="col">
+				<div id="map"></div>
+			    <script>
 			      var map;
 			      function initMap() {
 			        map = new google.maps.Map(document.getElementById('map'), {
@@ -24,6 +25,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			        });
 			      }
 			    </script>
+    		</div>
+    		<div class="col">
     		<div class="content">
       			<h4>Take a look at your piece of rainforest</h4>
       			<p>Are you one of our heroes and adopted a square meter of costa rican rainforest? Fly to it and explore!</p>
@@ -36,7 +39,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       			</form>
       			<a href="http://www.adopteerregenwoud.nl/nl/adopteer/adopteer-regenwoud"><button type="submit" class="btn btn-primary">ADOPT A SQUARE METER FOR ONLY €2.50</button></a>
       		</div>
-	</div>
+    		</div>
+  		</div>
+
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAICFxqTR1DqfTU7GzNyxRyJTNYrCSaCao&callback=initMap"
 	async defer></script>
 </body>
