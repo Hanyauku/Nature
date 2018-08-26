@@ -2,6 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Data extends CI_Controller {
+
     public function search() {
         // check if input is valid
         $this->form_validation->set_rules('email', 'Email', 'trim|valid_email|required');
