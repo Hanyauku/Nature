@@ -12,8 +12,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     </head>
     <body>
         <p>back to start</p>
-        <form action="/data/search" method="post">
-            <!-- add validation -->
+        <form action="/data/searchSecond" method="post">
+            <?php if(!empty($this->session->flashdata('input_error'))) {
+                echo $this->session->flashdata('input_error') . '<br />';
+            }?>
             <input type="email" name="email" placeholder="Enter your email">
             <button type="submit" class="btn btn-primary mb-2">FIND</button>
         </form>
@@ -23,7 +25,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="locationContainer">
             <?php
                 foreach ($coordinates as $coordinate) { ?>
-                    <button type="submit" name="button"> <a href="/location/<?= $coordinate['id'] ?>"><?= $coordinate['sqm'] . "m " . $coordinate['latitude'] . " " . $coordinate['longitude'] ?></a></button><?php
+                    <button type="submit" name="button"> <a href="/location/<?= $coordinate['id'] ?>"><?= $coordinate['sqm'] . "m " . $coordinate['latitude'] . "°N " . $coordinate['longitude'] . "°W" ?></a></button><?php
             } ?>
         </div>
     </body>

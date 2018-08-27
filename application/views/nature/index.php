@@ -30,7 +30,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     		<div class="content">
       			<h4>Take a look at your piece of rainforest</h4>
       			<p>Are you one of our heroes and adopted a square meter of costa rican rainforest? Fly to it and explore!</p>
-      			<form action="data/search" method="post">
+      			<form action="data/searchFirst" method="post">
 					<?php if(!empty($this->session->flashdata('input_error'))) {
                         echo $this->session->flashdata('input_error') . '<br />';
                     }?>

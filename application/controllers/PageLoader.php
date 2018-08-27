@@ -14,4 +14,8 @@ class PageLoader extends CI_Controller {
         $data['coordinates'] = $this->nature->findCoordinates($this->session->userdata('userid'));
         $this->load->view('nature/userpage', $data);
     }
+
+    public function location() {
+        $this->load->view('nature/location');
+    }
 }
