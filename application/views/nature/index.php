@@ -41,7 +41,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       		</div>
     		</div>
   		</div>
-
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAICFxqTR1DqfTU7GzNyxRyJTNYrCSaCao&callback=initMap"
 	async defer></script>
 </body>

@@ -2,11 +2,13 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Nature extends CI_Model {
+    // returns user id and name, search by email
     public function findUser($argument) {
-        $query = "SELECT users.id, users.name, FROM users WHERE email = ?;";
+        $query = "SELECT users.id, users.name FROM users WHERE email = ?;";
         return $this->db->query($query, $argument)->row_array();
     }
 
+    // returns locations and sq meters for certain user, search by user id
     public function findCoordinates($argument) {
         $query = "SELECT location.coordinates, users_has_location.sqm
         FROM location
@@ -16,6 +18,7 @@ class Nature extends CI_Model {
         return $this->db->query($query, $argument)->result_array();
     }
 
+    // returns all images and videos for certain location, search by location id
     public function findMedia($argument) {
         $query = "SELECT media.link
         FROM media

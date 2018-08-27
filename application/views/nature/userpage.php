@@ -1,35 +1,25 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+?>
+
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Simple Map</title>
-    <meta name="viewport" content="initial-scale=1.0">
-    <meta charset="utf-8">
-    <style>
-      /* Always set the map height explicitly to define the size of the div
-       * element that contains the map. */
-      #map {
-        height: 100%;
-      }
-      /* Optional: Makes the sample page fill the window. */
-      html, body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-      }
-    </style>
-  </head>
-  <body>
-    <div id="map"></div>
-    <script>
-      var map;
-      function initMap() {
-        map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: 10.037054, lng: -83.350640},
-          zoom: 8
-        });
-      }
-    </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAICFxqTR1DqfTU7GzNyxRyJTNYrCSaCao&callback=initMap"
-    async defer></script>
-  </body>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Second page</title>
+    </head>
+    <body>
+        <p>back to start</p>
+        <form action="data/search" method="post">
+            <!-- add validation -->
+            <input type="email" name="email" placeholder="Enter your email">
+            <button type="submit" class="btn btn-primary mb-2">FIND</button>
+        </form>
+        <h1>Hello <!-- add user name --> </h1>
+        <p>This are places of adopted rainforests. Take a look</p>
+        <hr>
+        <div class="locationContainer">
+
+        </div>
+    </body>
 </html>
