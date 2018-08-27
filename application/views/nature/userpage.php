@@ -12,7 +12,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     </head>
     <body>
         <p>back to start</p>
-        <form action="data/search" method="post">
+        <form action="/data/search" method="post">
             <!-- add validation -->
             <input type="email" name="email" placeholder="Enter your email">
             <button type="submit" class="btn btn-primary mb-2">FIND</button>
@@ -22,9 +22,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <hr>
         <div class="locationContainer">
             <?php
-                $coordinates = $this->session->userdata['coordinates'];
                 foreach ($coordinates as $coordinate) { ?>
-                    <button type="submit" name="button"> <a href="locationData/<?= $coordinate['id'] ?>"><?= $coordinate['sqm'] . "m " . $coordinate['latitude'] . " " . $coordinate['longitude'] ?></a></button><?php
+                    <button type="submit" name="button"> <a href="/location/<?= $coordinate['id'] ?>"><?= $coordinate['sqm'] . "m " . $coordinate['latitude'] . " " . $coordinate['longitude'] ?></a></button><?php
             } ?>
         </div>
     </body>

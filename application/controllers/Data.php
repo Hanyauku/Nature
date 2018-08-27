@@ -21,12 +21,20 @@ class Data extends CI_Controller {
                 // save userdata
                 $this->session->set_userdata('username', $user['name']);
                 $this->session->set_userdata('userid', $user['id']);
-                redirect('pageloader/userpage');
+                redirect('/pageloader/userpage');
             }
             else {
                 $this->session->set_flashdata('input_error', "Sorry, email is not registered.");
                 redirect('/pageloader');
             }
         }
+    }
+
+    public function locationData($locationId) {
+        echo $locationId;
+        die();
+        $this->load->model('nature');
+        $photos = $this->nature->findMedia($locationId);
+        $this->load->view('nature/location', $photos);
     }
 }
