@@ -5,25 +5,40 @@ ob_start();
 
 <head>
 <title>W3.CSS</title>
-<link rel="stylesheet" href="/css/mijnstyle.css"/>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<!-- Bootstrap -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="/css/mijnstyle.css"/>
 </head>
 
 <body>
-
-<div class="w3-sidebar w3-bar-block w3-dark-grey w3-animate-left" style="display:none" id="mySidebar">
-  <button class="w3-bar-item w3-button w3-large"
-  onclick="w3_close()">Close &times;</button>
-  <a href="#" class="w3-bar-item w3-button">Link 1</a>
-  <a href="#" class="w3-bar-item w3-button">Link 2</a>
-  <a href="#" class="w3-bar-item w3-button">Link 3</a>
+<!-- ====sidebar====== -->
+<div class="w3-sidebar w3-bar-block w3-green w3-animate-left"  style="width:390px" id="mySidebar">
+    <!-- clos bottun -->
+    <button class="w3-bar-item w3-button w3-large" style="text-align: center;"onclick="w3_close()">Close &times;</button>
+    <!-- sidcontaint -->
+    <div class="sidcontaint">
+        <h4><b>Take a look at your piece of rainforest</b></h4>
+        <p>Are you one of our heroes and adopted a square meter<br> of costa rican rainforest? Fly to it and explore!</p>
+        
+        <form class="form-inline" action="/action_page.php">
+            <input type="email" class="form-control" id="email" placeholder="Enter your email" name="email">
+            <button type="submit" class="btn btn-default">Find</button>
+        </form>
+        <a href="#" class="btn " role="button">ADOPT A SQUARE METER FOR ONLY €2.50</a>
+        
+    </div>
 </div>
-
+<!-- page containt with map -->
 <div class="container"> 
     <div id="map"></div>
     <button class="btn" onclick="w3_open()">&#9776;</button>
-    
+ 
 </div>
 
         
