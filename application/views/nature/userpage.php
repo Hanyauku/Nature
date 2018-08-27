@@ -1,7 +1,9 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+// search fiel
 ?>
 
+</fieldset>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
     <head>
@@ -15,11 +17,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <input type="email" name="email" placeholder="Enter your email">
             <button type="submit" class="btn btn-primary mb-2">FIND</button>
         </form>
-        <h1>Hello <!-- add user name --> </h1>
+        <h1>Hello <?php echo $this->session->userdata('username') ?> </h1>
         <p>This are places of adopted rainforests. Take a look</p>
         <hr>
         <div class="locationContainer">
-
+            <?php
+                $coordinates = $this->session->userdata['coordinates'];
+                foreach ($coordinates as $coordinate) { ?>
+                    <button type="submit" name="button"> <a href="locationData/<?= $coordinate['id'] ?>"><?= $coordinate['sqm'] . "m " . $coordinate['latitude'] . " " . $coordinate['longitude'] ?></a></button><?php
+            } ?>
         </div>
     </body>
 </html>

@@ -10,7 +10,7 @@ class Nature extends CI_Model {
 
     // returns locations and sq meters for certain user, search by user id
     public function findCoordinates($argument) {
-        $query = "SELECT location.coordinates, users_has_location.sqm
+        $query = "SELECT location.latitude, location.longitude, location.id, users_has_location.sqm
         FROM location
         INNER JOIN users_has_location
         ON users_has_location.location_id = location.id
