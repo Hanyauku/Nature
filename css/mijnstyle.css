@@ -37,7 +37,7 @@
      width: 25%;
  }
 
- .sidcontaint a {
+ .sidcontaint .round {
      width: 90%;
      border-radius: 24px;
      border-style: solid;
@@ -49,6 +49,13 @@
      height: auto;
  }
 
+ 9
+ down vote
+ This was the most simple way to do it imo and it worked for me.
+
+tr:hover, tr:active {
+    background: red;
+}
 
  /* ---------------------------------------------------
      CONTENT STYLE
