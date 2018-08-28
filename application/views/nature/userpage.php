@@ -38,7 +38,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 </form>
                 <h4><?= $this->lang->line('hello_personal') . " " . $this->session->userdata('username') ?></h4>
                 <p><?= $this->lang->line('detail_personal') ?></p>
-                <table>
+                <table class="table">
                     <tbody>
                         <?php
                             foreach ($coordinates as $coordinate) { ?>
