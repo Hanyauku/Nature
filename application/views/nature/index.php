@@ -68,12 +68,26 @@ function w3_close() {
         function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
             center: {lat: 10.037054, lng: -83.350640},
-            zoom: 8,
+            zoom: 12.5,
             mapTypeId: 'satellite',
             mapTypeControl: false
         });
+
+        var rectangle = new google.maps.Rectangle({
+        map: map,
+        bounds: new google.maps.LatLngBounds(
+          new google.maps.LatLng(10.105276, -83.383103),
+          new google.maps.LatLng(10.007095, -83.250103)
+        ),
+        fillcolor:"darkgreen",
+        strokeColor: "darkgreen"
+        });
+        google.maps.event.addListener (rectangle, "bounds_changed", function (){
+        document.getElementByid("info").innerHTML = rectangle.getBounds();
+        })
         }
 </script>
+
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB6nhveJrJGLPkqa6gpSgbQVyssBWM63oc&callback=initMap"
 async defer></script>
 
