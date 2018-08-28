@@ -7,9 +7,11 @@ class Data extends CI_Controller {
     public function search() {
         // check if input is valid
         $this->form_validation->set_rules('email', 'Email', 'trim|valid_email|required');
+        $idiom = $this->session->userdata('lang');
+        $this->lang->load('nature',$idiom);
         if ($this->form_validation->run() === false) {
             //show error, redirect to index
-            $this->session->set_flashdata('input_error', validation_errors());
+            $this->session->set_flashdata('input_error', $this->lang->line('error_empty_email'));
             return 0;
         }
         else {
@@ -24,7 +26,7 @@ class Data extends CI_Controller {
                 return 1;
             }
             else {
-                $this->session->set_flashdata('input_error', "Sorry, email is not registered.");
+                $this->session->set_flashdata('input_error', $this->lang->line('error_email'));
                 return 0;
             }
         }
@@ -35,7 +37,7 @@ class Data extends CI_Controller {
             redirect('/pageloader/userpage');
         }
         else {
-            redirect('/pageloader');
+            redirect("","refresh");
         }
     }
 
