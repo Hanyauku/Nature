@@ -28,7 +28,7 @@ ob_start();
         <div class="share">
     		<?= anchor("/pageloader/change/english","EN"); ?> | <?= anchor("/pageloader/change/dutch","NL"); ?>
     	</div>
-        <h4><b><?= $this->lang->line('topic_index'); ?><sup>5</sup> </b></h4>
+        <h4><b><?= $this->lang->line('topic_index'); ?></b></h4>
         <p><?= $this->lang->line('content_index'); ?></p>
 
         <form class="form-inline" action="data/searchFirst" method="post">
