@@ -51,6 +51,13 @@ class Data extends CI_Controller {
     }
 
     public function locationData($locationId) {
+        $idiom = $this->session->get_userdata('lang');
+        if (empty($idiom['lang'])) {
+            $this->session->set_userdata('lang','english');
+            $idiom = $this->session->get_userdata('lang');
+        }
+        // load chosen language
+        $this->lang->load('nature',$idiom['lang']);
         $this->load->model('nature');
         $data['photos'] = $this->nature->findMedia($locationId);
         $data['coordinates'] = $this->nature->getCoordinates($locationId);
