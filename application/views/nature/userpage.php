@@ -17,6 +17,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
         <link rel="stylesheet" href="/css/mijnstyle.css"/>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
     </head>
     <body>
         <!-- ====sidebar====== -->
@@ -37,45 +38,42 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 </form>
                 <h4><?= $this->lang->line('hello_personal') . " " . $this->session->userdata('username') ?></h4>
                 <p><?= $this->lang->line('detail_personal') ?></p>
-                <table class="table">
+                <table>
                     <tbody>
                         <?php
                             foreach ($coordinates as $coordinate) { ?>
                                 <tr>
-                                    <td><a href="/location/<?= $coordinate['id'] ?>"><?= $coordinate['latitude'] . "°N " ?></a></td>
-                                    <td><a href="/location/<?= $coordinate['id'] ?>"><?= $coordinate['longitude'] . "°W" ?></a></td>
+                                    <td id="lat" value="<?= $coordinate['latitude'] ?>"><a href="/location/<?= $coordinate['id'] ?>"><?= $coordinate['latitude'] . "°N " ?></a></td>
+                                    <td id="long"><a href="/location/<?= $coordinate['id'] ?>"><?= $coordinate['longitude'] . "°W" ?></a></td>
                                     <td><a href="/location/<?= $coordinate['id'] ?>"><?= $coordinate['sqm'] . "m" ?><sup>2</sup></a></td>
+                                    <td><a href="/location/<?= $coordinate['id'] ?>"><i class="fas fa-crosshairs"></i></a></td>
                                 </tr>
                         <?php } ?>
                     </tbody>
                 </table>
-                <div class="locationContainer">
-
-                </div>
             </div>
             <div class="sidbarfooter">
-                 <a href ="http://www.adopteerregenwoud.nl"><img src="/img/logo.png" alt="Nature Logo"></a>
+                <a href ="http://www.adopteerregenwoud.nl"><img src="/img/logo.png" alt="Nature Logo"></a>
             </div>
         </div>
         <!-- page containt with map -->
         <div class="container">
             <div id="map"></div>
             <button class="btn" onclick="w3_open()">&#9776;</button>
-
         </div>
         <script>
-        function w3_open() {
-            document.getElementById("mySidebar").style.display = "block";
-        }
-        function w3_close() {
-            document.getElementById("mySidebar").style.display = "none";
-        }
+            function w3_open() {
+                document.getElementById("mySidebar").style.display = "block";
+            }
+            function w3_close() {
+                document.getElementById("mySidebar").style.display = "none";
+            }
         </script>
 
         <!-- google map  -->
         <script>
-                var map;
-                function initMap() {
+            var map;
+            function initMap() {
                 map = new google.maps.Map(document.getElementById('map'), {
                     center: {lat: 10.037054, lng: -83.350640},
                     zoom: 12.5,
@@ -84,18 +82,28 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 });
 
                 var rectangle = new google.maps.Rectangle({
-                map: map,
-                bounds: new google.maps.LatLngBounds(
-                  new google.maps.LatLng(10.105276, -83.383103),
-                  new google.maps.LatLng(10.007095, -83.250103)
-                ),
-                fillcolor:"darkgreen",
-                strokeColor: "darkgreen"
+                    map: map,
+                    bounds: new google.maps.LatLngBounds(
+                    new google.maps.LatLng(10.105276, -83.383103),
+                    new google.maps.LatLng(10.007095, -83.250103)
+                    ),
+                    fillcolor:"darkgreen",
+                    strokeColor: "darkgreen"
                 });
-                google.maps.event.addListener (rectangle, "bounds_changed", function (){
-                document.getElementByid("info").innerHTML = rectangle.getBounds();
-                })
-                }
+
+                <?php foreach ($coordinates as $coordinate) { ?>
+                    var lat = <?php echo $coordinate['latitude']; ?>;
+                    var long = -<?php echo $coordinate['longitude']; ?>;
+                    var circle = new google.maps.Circle({
+                        map: map,
+                        center: new google.maps.LatLng(lat, long),
+                        radius: 100,
+                        strokeColor: "white",
+                        fillColor:"white",
+                        fillOpacity: 100
+                    });
+                <?php } ?>
+            }
         </script>
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB6nhveJrJGLPkqa6gpSgbQVyssBWM63oc&callback=initMap"
         async defer></script>

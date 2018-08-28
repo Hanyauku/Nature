@@ -34,15 +34,6 @@ class PageLoader extends CI_Controller {
         $this->load->view('nature/location');
     }
 
-    //     public function index() {
-    //         $idiom = $this->session->get_userdata('lang');
-    //         //var_dump($idiom);
-    //         //die;
-    // //        $idiom = 'english';
-    //     	$this->lang->load('nature',$idiom['lang']);
-    //         $this->load->view('nature/index');
-    //     }
-
     // allows change language
     public function change($type) {
     	$this->session->set_userdata('lang',$type);
