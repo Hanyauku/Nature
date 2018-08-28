@@ -4,7 +4,7 @@ ob_start();
 ?>
 
 <head>
-<title>W3.CSS</title>
+<title>Adopt A Tree</title>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <!-- Bootstrap -->
@@ -25,23 +25,29 @@ ob_start();
     <div class="sidcontaint">
         <h4><b>Take a look at your piece of rainforest</b></h4>
         <p>Are you one of our heroes and adopted a square meter<br> of costa rican rainforest? Fly to it and explore!</p>
-        
-        <form class="form-inline" action="/action_page.php">
+
+        <form class="form-inline" action="data/searchFirst" method="post">
+            <?php if(!empty($this->session->flashdata('input_error'))) { ?>
+                <h5> <?= $this->session->flashdata('input_error') ?> </h5> <?php ;
+            }?>
             <input type="email" class="form-control" id="email" placeholder="Enter your email" name="email">
             <button type="submit" class="btn btn-default">Find</button>
         </form>
-        <a href="#" class="btn " role="button">ADOPT A SQUARE METER FOR ONLY €2.50</a>
-        
+        <a href="http://www.adopteerregenwoud.nl/nl/adopteer/adopteer-regenwoud" class="btn " role="button">ADOPT A SQUARE METER FOR ONLY €2.50</a>
+
+    </div>
+    <div class="sidbarfooter">
+        <a href ="http://www.adopteerregenwoud.nl"><img src="/img/logo.png" alt="Nature Logo"></a>
     </div>
 </div>
 <!-- page containt with map -->
-<div class="container"> 
+<div class="container">
     <div id="map"></div>
     <button class="btn" onclick="w3_open()">&#9776;</button>
- 
+
 </div>
 
-        
+
 
 <script>
 function w3_open() {
@@ -59,11 +65,12 @@ function w3_close() {
         map = new google.maps.Map(document.getElementById('map'), {
             center: {lat: 10.037054, lng: -83.350640},
             zoom: 8,
-            mapTypeId: 'satellite'
+            mapTypeId: 'satellite',
+            mapTypeControl: false
         });
         }
 </script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAICFxqTR1DqfTU7GzNyxRyJTNYrCSaCao&callback=initMap"
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB6nhveJrJGLPkqa6gpSgbQVyssBWM63oc&callback=initMap"
 async defer></script>
-     
+
 </body>
