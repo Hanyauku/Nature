@@ -10,7 +10,9 @@ ob_start();
 <!-- Bootstrap -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-
+<link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.0/material.indigo-pink.min.css">
+<script src="https://storage.googleapis.com/code.getmdl.io/1.0.0/material.min.js"></script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="/css/mijnstyle.css"/>
@@ -23,18 +25,23 @@ ob_start();
     <button class="w3-bar-item w3-button w3-large" style="text-align: center;"onclick="w3_close()">Close &times;</button>
     <!-- sidcontaint -->
     <div class="sidcontaint">
-        <h4><b>Take a look at your piece of rainforest</b></h4>
-        <p>Are you one of our heroes and adopted a square meter<br> of costa rican rainforest? Fly to it and explore!</p>
+        <div class="share">
+    		<?= anchor("/pageloader/change/english","EN"); ?> | <?= anchor("/pageloader/change/dutch","NL"); ?>
+    	</div>
+        <h4><b><?= $this->lang->line('topic_index'); ?></b></h4>
+        <p><?= $this->lang->line('content_index'); ?></p>
 
         <form class="form-inline" action="data/searchFirst" method="post">
             <?php if(!empty($this->session->flashdata('input_error'))) { ?>
                 <h5> <?= $this->session->flashdata('input_error') ?> </h5> <?php ;
             }?>
-            <input type="email" class="form-control" id="email" placeholder="Enter your email" name="email">
-            <button type="submit" class="btn btn-default">Find</button>
+            <input type="email" class="form-control" id="email" placeholder="<?= $this->lang->line('email_index'); ?>" name="email">
+            <button type="submit" class="btn btn-default"><?= $this->lang->line('find_index'); ?></button>
         </form>
-        <a href="http://www.adopteerregenwoud.nl/nl/adopteer/adopteer-regenwoud" class="btn " role="button">ADOPT A SQUARE METER FOR ONLY €2.50</a>
-
+        <a href="http://www.adopteerregenwoud.nl/nl/adopteer/adopteer-regenwoud" class="btn " role="button"><?= $this->lang->line('adopt_index'); ?></a>
+    </div>
+    <div class="sidbarfooter">
+         <a href ="http://www.adopteerregenwoud.nl"><img src="/img/logo.png" alt="Nature Logo"></a>
     </div>
 </div>
 <!-- page containt with map -->
@@ -61,8 +68,9 @@ function w3_close() {
         function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
             center: {lat: 10.037054, lng: -83.350640},
-            zoom: 13,
-            mapTypeId: 'satellite'
+            zoom: 12.5,
+            mapTypeId: 'satellite',
+            mapTypeControl: false
         });
 
         var rectangle = new google.maps.Rectangle({
@@ -71,19 +79,27 @@ function w3_close() {
           new google.maps.LatLng(10.105276, -83.383103),
           new google.maps.LatLng(10.007095, -83.250103)
         ),
-
         fillcolor:"darkgreen",
-        strokeColor: "green",
-        editable:true,
-        draggable:true
+        strokeColor: "darkgreen"
         });
-
         google.maps.event.addListener (rectangle, "bounds_changed", function (){
         document.getElementByid("info").innerHTML = rectangle.getBounds();
-
+        })
+        var rectangle = new google.maps.Rectangle({
+        map: map,
+        bounds: new google.maps.LatLngBounds(
+          new google.maps.LatLng(10.014298, -83.304853),
+          new google.maps.LatLng(10.010163, -83.299920)
+        ),
+        fillcolor:"darkgreen",
+        strokeColor: "red"
+        });
+        google.maps.event.addListener (rectangle, "bounds_changed", function (){
+        document.getElementByid("info").innerHTML = rectangle.getBounds();
         })
         }
 </script>
+
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB6nhveJrJGLPkqa6gpSgbQVyssBWM63oc&callback=initMap"
 async defer></script>
 
