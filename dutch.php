@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 $lang['topic_index'] = 'Neem een kijkje op jouw stukje regenwoud';
 
-$lang['content_index'] = 'Ben jij een van onze helden en adopteer je een vierkante meter regenwoud in Costa Rica?'
+$lang['content_index'] = 'Ben jij een van onze helden en adopteer je een vierkante meter regenwoud in Costa Rica?';
 
 $lang['email_index'] = 'Geef je email';
 

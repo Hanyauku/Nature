@@ -39,7 +39,9 @@ ob_start();
             <button type="submit" class="btn btn-default"><?= $this->lang->line('find_index'); ?></button>
         </form>
         <a href="http://www.adopteerregenwoud.nl/nl/adopteer/adopteer-regenwoud" class="btn " role="button"><?= $this->lang->line('adopt_index'); ?></a>
-
+    </div>
+    <div class="sidbarfooter">
+         <a href ="http://www.adopteerregenwoud.nl"><img src="/img/logo.png" alt="Nature Logo"></a>
     </div>
 </div>
 <!-- page containt with map -->
@@ -67,7 +69,8 @@ function w3_close() {
         map = new google.maps.Map(document.getElementById('map'), {
             center: {lat: 10.037054, lng: -83.350640},
             zoom: 8,
-            mapTypeId: 'satellite'
+            mapTypeId: 'satellite',
+            mapTypeControl: false
         });
         }
 </script>

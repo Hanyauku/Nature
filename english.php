@@ -5,7 +5,7 @@ $lang['topic_index'] = 'Take a look at your piece of rainforest';
 $lang['topic_index'] = 'Kijk eens op your stukkje regent bos';
 
 $lang['content_index'] = 'Are you one of our heroes and adopted a square meter of Costa Rica rainforest? Fly to it and explore!';
-$lang['content_index'] = 'Ben jij een van onze helden en adopteer een vierkantmeter van Costa Rica regent bos?'
+$lang['content_index'] = 'Ben jij een van onze helden en adopteer een vierkantmeter van Costa Rica regent bos?';
 
 $lang['email_index'] = 'Enter your email';
 $lang['email_index'] = 'Volg je email';
