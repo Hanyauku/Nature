@@ -91,11 +91,35 @@ function w3_close() {
           new google.maps.LatLng(10.014298, -83.304853),
           new google.maps.LatLng(10.010163, -83.299920)
         ),
-        fillcolor:"darkgreen",
-        strokeColor: "red"
+        strokeColor: "green",
+        fillColor:"#00ff00",
+        editable:true
         });
         google.maps.event.addListener (rectangle, "bounds_changed", function (){
         document.getElementByid("info").innerHTML = rectangle.getBounds();
+        })
+
+        var circle = new google.maps.Circle({
+        map: map,
+        center: new google.maps.LatLng(10.018349, -83.357535),
+        radius: 400,
+        strokeColor: "red",
+        fillColor:"#00ff00",
+        editable:true
+        });
+        google.maps.event.addListener (circle, "radius_changed", function (){
+        document.getElementByid("info").innerHTML = circle.getRadius();
+        })
+        var circle = new google.maps.Circle({
+        map: map,
+        center: new google.maps.LatLng(10.085000, -83.324836),
+        radius: 400,
+        strokeColor: "red",
+        fillColor:"#00ff00",
+        editable:true
+        });
+        google.maps.event.addListener (circle, "radius_changed", function (){
+        document.getElementByid("info").innerHTML = circle.getRadius();
         })
         }
 </script>
