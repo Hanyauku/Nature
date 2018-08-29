@@ -51,6 +51,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <button class="btn" onclick="w3_open()">&#9776;</button>
         </div>
         <script>
+            // closing side bar
             function w3_open() {
                 document.getElementById("mySidebar").style.display = "block";
             }
@@ -61,6 +62,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
         <!-- google map  -->
         <script>
+            // loads map
             var map;
             function initMap() {
                 map = new google.maps.Map(document.getElementById('map'), {
@@ -70,6 +72,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     mapTypeControl: false
                 });
 
+                // draws square for addopted territory
                 var rectangle = new google.maps.Rectangle({
                     map: map,
                     bounds: new google.maps.LatLngBounds(
@@ -79,7 +82,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     fillcolor:"darkgreen",
                     strokeColor: "darkgreen"
                 });
-
+                // draws square for certain location
                 var lat = <?php echo $coordinates['latitude']; ?>;
                 var long = -<?php echo $coordinates['longitude']; ?>;
                 var rectangle = new google.maps.Rectangle({

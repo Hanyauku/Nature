@@ -63,6 +63,8 @@ ob_start();
         <!-- google map  -->
         <script>
                 var map;
+
+                // load the map
                 function initMap() {
                 map = new google.maps.Map(document.getElementById('map'), {
                     center: {lat: 10.037054, lng: -83.350640},
@@ -71,6 +73,7 @@ ob_start();
                     mapTypeControl: false
                 });
 
+                // draws rectangle for addopted territory
                 var rectangle = new google.maps.Rectangle({
                 map: map,
                 bounds: new google.maps.LatLngBounds(

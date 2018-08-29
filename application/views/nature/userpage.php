@@ -41,6 +41,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <table class="table">
                     <tbody>
                         <?php
+                            // create table with adopted coordinates
                             foreach ($coordinates as $coordinate) { ?>
                                 <tr>
                                     <td id="lat" value="<?= $coordinate['latitude'] ?>"><a href="/location/<?= $coordinate['id'] ?>"><?= $coordinate['latitude'] . "°N " ?></a></td>
@@ -62,6 +63,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <button class="btn" onclick="w3_open()">&#9776;</button>
         </div>
         <script>
+            // closing side bar
             function w3_open() {
                 document.getElementById("mySidebar").style.display = "block";
             }
@@ -72,6 +74,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
         <!-- google map  -->
         <script>
+            // load map
             var map;
             function initMap() {
                 map = new google.maps.Map(document.getElementById('map'), {
@@ -80,7 +83,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     mapTypeId: 'satellite',
                     mapTypeControl: false
                 });
-
+                // draws square for addopted territory
                 var rectangle = new google.maps.Rectangle({
                     map: map,
                     bounds: new google.maps.LatLngBounds(
@@ -90,7 +93,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     fillcolor:"darkgreen",
                     strokeColor: "darkgreen"
                 });
-
+                // draws dots for each location adopted by user
                 <?php foreach ($coordinates as $coordinate) { ?>
                     var lat = <?php echo $coordinate['latitude']; ?>;
                     var long = -<?php echo $coordinate['longitude']; ?>;
