@@ -26,6 +26,7 @@ class Nature extends CI_Model {
         return $this->db->query($query, $locationid)->result_array();
     }
 
+    // returns coordinates and ammoun of sqm adopted by user for certain location id
     public function getcoordinates($locationid) {
         $query = "SELECT location.latitude, location.longitude, users_has_location.sqm
         FROM location
@@ -35,6 +36,7 @@ class Nature extends CI_Model {
         return $this->db->query($query, $locationid)->row_array();
     }
 
+    // returns total ammount of sqm adopted by user
     public function calculatesqm($userid) {
         $query = "SELECT SUM(sqm) AS sum
         FROM users_has_location
