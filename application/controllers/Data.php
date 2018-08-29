@@ -5,6 +5,9 @@ class Data extends CI_Controller {
 
     // search data by email
     public function search() {
+        // connect language for errors
+        $idiom = $this->session->get_userdata('lang');
+        $this->lang->load('nature',$idiom['lang']);
         // check if input is valid
         $this->form_validation->set_rules('email', 'Email', 'trim|valid_email|required');
         if ($this->form_validation->run() === false) {

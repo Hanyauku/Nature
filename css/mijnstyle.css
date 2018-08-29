@@ -76,7 +76,7 @@
  }
 
 tr:hover {
-    background-color: green;
+    background-color: #419641;
 }
 
  /* ---------------------------------------------------
@@ -128,4 +128,12 @@ a {
 .logo img {
     width: 150px;
     height: auto;
+}
+
+.form-inline h5 {
+    color: #552B1D;
+}
+
+.userpagefield {
+    background-color: #419641;
 }

@@ -30,13 +30,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </div>
             <!-- sidcontaint -->
             <div class="sidcontaint">
-                <form class="form-inline" action="/data/searchSecond" method="post">
-                    <?php if(!empty($this->session->flashdata('input_error'))) { ?>
-                        <h5> <?= $this->session->flashdata('input_error') ?> </h5> <?php ;
-                    }?>
-                    <input type="email" class="form-control" id="email" placeholder="<?= $this->lang->line('email_index'); ?>" name="email">
-                    <button type="submit" class="btn btn-default"><?= $this->lang->line('find_index') ?></button>
-                </form>
                 <h4><?= $this->lang->line('hello_personal') . " " . $this->session->userdata('username') ?></h4>
                 <p><?= $this->lang->line('detail_personal') ?></p>
                 <table class="table">
@@ -53,6 +46,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <?php } ?>
                     </tbody>
                 </table>
+                <form class="form-inline userpageform" action="/data/searchSecond" method="post">
+                    <?php if(!empty($this->session->flashdata('input_error'))) { ?>
+                        <h5> <?= $this->session->flashdata('input_error') ?> </h5> <?php ;
+                    }?>
+                    <input type="email" class="form-control userpagefield" id="email" placeholder="<?= $this->lang->line('email_index'); ?>" name="email">
+                    <button type="submit" class="btn btn-success "><?= $this->lang->line('find_index') ?></button>
+                </form>
                 <a href ="http://www.adopteerregenwoud.nl" class="logo"><img src="/img/logo.png" alt="Nature Logo"></a>
             </div>
         </div>
