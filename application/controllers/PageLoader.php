@@ -30,17 +30,6 @@ class PageLoader extends CI_Controller {
         $this->load->view('nature/userpage', $data);
     }
 
-    public function location() {
-        $idiom = $this->session->get_userdata('lang');
-        if (empty($idiom['lang'])) {
-            $this->session->set_userdata('lang','english');
-            $idiom = $this->session->get_userdata('lang');
-        }
-        // load chosen language
-        $this->lang->load('nature',$idiom['lang']);
-        $this->load->view('nature/location');
-    }
-
     // allows change language
     public function change($type) {
     	$this->session->set_userdata('lang',$type);
