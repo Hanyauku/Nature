@@ -16,14 +16,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="/css/mijnstyle.css"/>
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
     </head>
     <body>
         <!-- ====sidebar====== -->
         <div class="w3-sidebar w3-bar-block w3-green w3-animate-left"  style="width:390px" id="mySidebar">
-            <!-- clos bottun -->
-            <button class="w3-bar-item w3-button w3-large" style="text-align: center;"onclick="w3_close()">Close &times;</button>
+            <!-- sidebar Banner buttons --><br>
+            <div id="sidbarbaner">
+                <a class=""><?= anchor("/pageloader/change/english","EN"); ?> | <?= anchor("/pageloader/change/dutch","NL"); ?></a>
+                <button class="btn" onclick="w3_close()" ><i class="fa fa-close"></i></button>
+            </div>
             <!-- sidcontaint -->
             <div class="sidcontaint">
                 <div class="share">
