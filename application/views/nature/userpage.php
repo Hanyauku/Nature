@@ -53,9 +53,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <?php } ?>
                     </tbody>
                 </table>
-            </div>
-            <div class="sidbarfooter">
-                <a href ="http://www.adopteerregenwoud.nl"><img src="/img/logo.png" alt="Nature Logo"></a>
+                <a href ="http://www.adopteerregenwoud.nl" class="logo"><img src="/img/logo.png" alt="Nature Logo"></a>
             </div>
         </div>
         <!-- page containt with map -->

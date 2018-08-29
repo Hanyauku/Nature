@@ -65,9 +65,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <h4> <?= $coordinates['sqm'] . "m" ?><sup>2</sup></h4>
                 <p><?= $this->lang->line('adopted_location') ?></p>
                 <h4> <?= $sum['sum'] . "m" ?><sup>2</sup></h4>
-            </div>
-            <div class="sidbarfooter">
-                <a href ="http://www.adopteerregenwoud.nl"><img src="/img/logo.png" alt="Nature Logo"></a>
+                <a href ="http://www.adopteerregenwoud.nl" class="logo"><img src="/img/logo.png" alt="Nature Logo"></a>
             </div>
         </div>
         <!-- page containt with map -->

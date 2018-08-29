@@ -119,3 +119,13 @@ tr:hover {
 a {
     color: white;
 }
+
+.logo {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;}
+
+.logo img {
+    width: 150px;
+    height: auto;
+}
