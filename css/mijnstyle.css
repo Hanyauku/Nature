@@ -49,12 +49,8 @@
      height: auto;
  }
 
- 9
- down vote
- This was the most simple way to do it imo and it worked for me.
-
-tr:hover, tr:active {
-    background: red;
+tr:hover {
+    background-color: green;
 }
 
  /* ---------------------------------------------------
