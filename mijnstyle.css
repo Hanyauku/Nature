@@ -1,6 +1,6 @@
 /* ---------------------------------------------------
-    SIDEBAR STYLE
------------------------------------------------------ */
+     SIDEBAR STYLE
+ ----------------------------------------------------- */
 
 .container .btn {
     position: absolute;
@@ -17,6 +17,25 @@
     border-radius: 5px;
     text-align: center;
 }
+
+
+/* ===sidebar Banner buttons===== */
+
+#sidbarbaner {
+    font-size: 14px;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+#sidbarbaner .btn {
+    background-color: #4CAF50;
+    font-size: 25px;
+    float: right;
+    margin-top: -14px;
+}
+
+
+/* ================= */
 
 .sidcontaint {
     height: 60%;
@@ -37,7 +56,7 @@
     width: 25%;
 }
 
-.sidcontaint a {
+.sidcontaint .round {
     width: 90%;
     border-radius: 24px;
     border-style: solid;
@@ -49,10 +68,14 @@
     height: auto;
 }
 
+tr:hover {
+    background-color: green;
+}
+
 
 /* ---------------------------------------------------
-    CONTENT STYLE
------------------------------------------------------ */
+     CONTENT STYLE
+ ----------------------------------------------------- */
 
 #map {
     height: 100%;
@@ -61,8 +84,8 @@
 
 
 /* ---------------------------------------------------
-    ************
------------------------------------------------------ */
+     ************
+ ----------------------------------------------------- */
 
 body,
 html {
