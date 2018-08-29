@@ -34,6 +34,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             	</div>
                 <!-- show images -->
                 <?php if(!empty($photos)) { ?>
+                <div class="photos-carusel">
                     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                         <div class="carousel-inner">
                             <div class="carousel-item active">
@@ -55,6 +56,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <span class="sr-only">Next</span>
                         </a>
                     </div>
+                </div>
                 <?php } ?>
                 <h2><?= $coordinates['latitude'] . "°N / " . $coordinates['longitude'] . "°W"?></h2>
                 <p><?= $this->lang->line('owner_location') ?></p>

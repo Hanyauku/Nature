@@ -5,9 +5,6 @@ class Data extends CI_Controller {
 
     // search data by email
     public function search() {
-        // set language
-        $idiom = $this->session->userdata('lang');
-        $this->lang->load('nature',$idiom);
         // check if input is valid
         $this->form_validation->set_rules('email', 'Email', 'trim|valid_email|required');
         if ($this->form_validation->run() === false) {
@@ -57,10 +54,6 @@ class Data extends CI_Controller {
     public function locationdata($locationId) {
         // load chosen language
         $idiom = $this->session->get_userdata('lang');
-        if (empty($idiom['lang'])) {
-            $this->session->set_userdata('lang','english');
-            $idiom = $this->session->get_userdata('lang');
-        }
         $this->lang->load('nature',$idiom['lang']);
         // gets all data for location
         $this->load->model('nature');

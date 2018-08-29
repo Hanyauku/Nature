@@ -83,3 +83,9 @@ tr:hover {
      margin: 0;
      padding: 0;
  }
+
+
+.carousel-inner img{
+  max-width: 100%;
+  height: 300px !important;
+}
