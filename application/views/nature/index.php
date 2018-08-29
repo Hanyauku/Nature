@@ -32,7 +32,7 @@ ob_start();
                 <h4><b><?= $this->lang->line('topic_index'); ?></b></h4>
                 <p><?= $this->lang->line('content_index'); ?></p>
 
-                <form class="form-inline" action="/data/searchFirst" method="post">
+                <form class="form-inline" action="/data/searchfirst" method="post">
                     <?php if(!empty($this->session->flashdata('input_error'))) { ?>
                         <h5> <?= $this->session->flashdata('input_error') ?> </h5> <?php ;
                     }?>

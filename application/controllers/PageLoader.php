@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class PageLoader extends CI_Controller {
+class Pageloader extends CI_Controller {
 
     // loads index page
     public function index() {
@@ -26,7 +26,7 @@ class PageLoader extends CI_Controller {
         // load chosen language
         $this->lang->load('nature',$idiom['lang']);
         $this->load->model('nature');
-        $data['coordinates'] = $this->nature->findCoordinates($this->session->userdata('userid'));
+        $data['coordinates'] = $this->nature->findcoordinates($this->session->userdata('userid'));
         $this->load->view('nature/userpage', $data);
     }
 
