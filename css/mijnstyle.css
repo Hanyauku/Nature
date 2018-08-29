@@ -20,21 +20,25 @@
 
  /* ===sidebar Banner buttons===== */
 
- #sidbarbaner {
-     font-size: 14px;
-     margin-left: 15px;
-     margin-right: 15px;
- }
+#sidbarbaner {
+    font-size: 14px;
+    margin-left: 15px;
+    margin-right: 15px;
+}
 
- #sidbarbaner .btn {
-     background-color: #4CAF50;
-     font-size: 25px;
-     float: right;
-     margin-top: -14px;
- }
+#sidbarbaner a {
+    color: white;
+}
+
+#sidbarbaner .btn {
+    background-color: #4CAF50;
+    font-size: 25px;
+    float: right;
+    margin-top: -14px;
+}
 
 
- /* ================= */
+/* ================= */
 
  .sidcontaint {
      height: 60%;
@@ -110,4 +114,8 @@ tr:hover {
 .carousel-inner img{
   max-width: 100%;
   height: 300px !important;
+}
+
+a {
+    color: white;
 }

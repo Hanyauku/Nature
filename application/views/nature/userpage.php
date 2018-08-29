@@ -30,9 +30,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </div>
             <!-- sidcontaint -->
             <div class="sidcontaint">
-                <div class="share">
-            		<?= anchor("/pageloader/change/english","EN"); ?> | <?= anchor("/pageloader/change/dutch","NL"); ?>
-            	</div>
                 <form class="form-inline" action="/data/searchSecond" method="post">
                     <?php if(!empty($this->session->flashdata('input_error'))) { ?>
                         <h5> <?= $this->session->flashdata('input_error') ?> </h5> <?php ;

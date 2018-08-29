@@ -27,15 +27,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="w3-sidebar w3-bar-block w3-green w3-animate-left"  style="width:390px" id="mySidebar">
             <!-- sidebar Banner buttons --><br>
             <div id="sidbarbaner">
-                <a class=""><?= anchor("/pageloader/change/english","EN"); ?> | <?= anchor("/pageloader/change/dutch","NL"); ?></a>
+                <a class="lang"><?= anchor("/pageloader/change/english","EN"); ?> | <?= anchor("/pageloader/change/dutch","NL"); ?></a>
                 <button class="btn" onclick="w3_close()" ><i class="fa fa-close"></i></button>
             </div>
             <!-- sidcontaint -->
             <div class="sidcontaint">
-                <div class="share">
-            		<?= anchor("/pageloader/change/english","EN"); ?> | <?= anchor("/pageloader/change/dutch","NL"); ?>
-                    <!-- add share button at header -->
-            	</div>
                 <!-- show images -->
                 <?php if(!empty($photos)) { ?>
                 <div class="photos-carusel">
