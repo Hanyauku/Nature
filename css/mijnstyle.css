@@ -2,7 +2,7 @@
      SIDEBAR STYLE
  ----------------------------------------------------- */
 
- .container .btn {
+ .mapcontainer .btn {
      position: absolute;
      top: 35px;
      left: 35px;
@@ -60,6 +60,8 @@ tr:hover {
  #map {
      height: 100%;
      width: 100%;
+     margin: 0;
+     padding: 0;
  }
 
 
@@ -75,6 +77,9 @@ tr:hover {
      padding: 0;
  }
 
- .container {
+ .mapcontainer {
      height: 100%;
      width: 100%;
+     margin: 0;
+     padding: 0;
+ }

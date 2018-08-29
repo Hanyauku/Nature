@@ -46,7 +46,7 @@ ob_start();
             </div>
         </div>
         <!-- page containt with map -->
-        <div class="container">
+        <div class="mapcontainer">
             <div id="map"></div>
             <button class="btn" onclick="w3_open()">&#9776;</button>
 
