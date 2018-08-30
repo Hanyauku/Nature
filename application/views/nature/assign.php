@@ -35,7 +35,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <p><?= $this->lang->line('goodjob_user') ?></p>
                 <br>
                 <form class="form-inline" action="/assign/write" method="post">
-                    <button type="submit" class="btn btn-default "><?= $this->lang->line('assign_location') ?></button>
+                    <button type="submit" class="btn btn-default " style="width:350px;"><?= $this->lang->line('assign_location') ?></button>
                 </form>
                 <a href ="http://www.adopteerregenwoud.nl" class="logo"><img src="/img/logo.png" alt="Nature Logo"></a>
             </div>
@@ -76,7 +76,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     fillcolor:"darkgreen",
                     strokeColor: "darkgreen"
                 });
-
                 var marker = new google.maps.Rectangle({
                     map: map,
                     bounds: new google.maps.LatLngBounds(
@@ -87,7 +86,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     strokeColor: "white",
                     title: 'Chose Me'
                 });
-
                 var longitude;
                 var latitude;
                 google.maps.event.addListener(marker, "click", function (event) {
@@ -103,12 +101,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                           markers[i].setMap(map);
                         }
                       }
-
                       // Removes the markers from the map, but keeps them in the array.
                       function clearMarkers() {
                         setMapOnAll(null);
                       }
-
                       // Deletes all markers in the array by removing references to them.
                       function deleteMarkers() {
                         clearMarkers();

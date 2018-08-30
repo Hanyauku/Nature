@@ -74,13 +74,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     </div>
                 </div>
                 <?php } ?>
-                <h5><?= $coordinates['latitude'] . "°N / " . $coordinates['longitude'] . "°W"?></h5>
-                <p class=loc><?= $this->lang->line('owner_location') ?></p>
-                <h6> <?= $this->session->userdata['username'] ?></h6>
-                <p class=loc><?= $this->lang->line('meter_location') ?></p>
-                <h6> <?= $coordinates['sqm'] . "m" ?><sup>2</sup></h6>
-                <p class=loc><?= $this->lang->line('adopted_location') ?></p>
-                <h6> <?= $sum['sum'] . "m" ?><sup>2</sup></h6>
+                <h5 style="margin-top: 10px;margin-bottom: 5%;"><?= $coordinates['latitude'] . "°N / " . $coordinates['longitude'] . "°W"?></h5>
+
+                <p class=loc style="text-align:left;padding-left:25px;"><b><?= $this->lang->line('owner_location') ?></p></b>
+                <h5 style="text-align:left;padding-left:25px;"> <?= $this->session->userdata['username'] ?></h5>
+                <div>
+                    <div style="display: inline-block;padding-right: 100px;">
+                        <p class=loc><b><?= $this->lang->line('meter_location') ?></b></p>
+                        <h6> <?= $coordinates['sqm'] . "m" ?><sup>2</sup></h6>
+                    </div>
+                    <div style="display: inline-block;">
+                        <p class=loc><b><?= $this->lang->line('adopted_location') ?></b></p>
+                        <h6> <?= $sum['sum'] . "m" ?><sup>2</sup></h6>
+                    </div>
+                </div>
                 <a href ="http://www.adopteerregenwoud.nl" class="logo"><img src="/img/logo.png" alt="Nature Logo"></a>
             </div>
         </div>
@@ -112,7 +119,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     mapTypeId: 'satellite',
                     mapTypeControl: false
                 });
-
                 // draws square for addopted territory
                 var rectangle = new google.maps.Rectangle({
                     map: map,
