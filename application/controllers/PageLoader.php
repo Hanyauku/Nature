@@ -18,12 +18,16 @@ class Pageloader extends CI_Controller {
 
     // loads second (users) page
     public function userpage() {
-        $idiom = $this->session->get_userdata('lang');
-        // load chosen language
-        $this->lang->load('nature',$idiom['lang']);
-        $this->load->model('nature');
-        $data['coordinates'] = $this->nature->findcoordinates($this->session->userdata('userid'));
-        $this->load->view('nature/userpage', $data);
+        if (!isset($this->session->userdata['userid'])) {
+            redirect('/ ');
+        } else {
+            $idiom = $this->session->get_userdata('lang');
+            // load chosen language
+            $this->lang->load('nature',$idiom['lang']);
+            $this->load->model('nature');
+            $data['coordinates'] = $this->nature->findcoordinates($this->session->userdata('userid'));
+            $this->load->view('nature/userpage', $data);
+        }
     }
 
     // allows change language

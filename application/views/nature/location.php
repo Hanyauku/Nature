@@ -18,9 +18,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
         <link rel="stylesheet" href="/css/mijnstyle.css"/>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
     </head>
     <body>
         <!-- ====sidebar====== -->
@@ -29,6 +31,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div id="sidbarbaner">
                 <a class="lang"><?= anchor("/pageloader/change/english","EN"); ?> | <?= anchor("/pageloader/change/dutch","NL"); ?></a>
                 <button class="btn" onclick="w3_close()" ><i class="fa fa-close"></i></button>
+                <div class="dropdown" style="margin-top: -16px;">
+                   <button class="btn" type="button" data-toggle="dropdown" > <i class="material-icons">share</i>
+                   <span class="caret"></span></button>
+                   <ul class="dropdown-menu"style="text-align: center;" >
+                       <a  href="http://www.facebook.com/sharer.php?u=http://www.adopteerregenwoud.nl"><i class="fa fa-facebook-official" style="font-size:35px;color:#3B5998;"></i></a>
+                       <a  href="http://twitter.com/share?text=AdoptTheForest&url=http://www.adopteerregenwoud.nl"><i class="fa fa-twitter" style="font-size:35px;color:#1DA1F2;"></i></a>
+                       <a  href="http://www.linkedin.com/shareArticle?mini=true&url=http://www.adopteerregenwoud.nl"><i class="fa fa-linkedin" style="font-size:35px;color:#0077B5;"></i></a>
+                       <a  href="mailto:?subject=Adopt The Forest&body=Check out this site http://www.adopteerregenwoud.nl"><i class="fa fa-envelope" style="font-size:35px;color:#DB4437;"></i></a>
+                   </ul>
+                </div>
+                <!-- - Back button -->
+                <button class="btn" onclick="javascript:window.history.go(-1);"><i class="material-icons">arrow_back</i></button>
+                <!-- <button class="btn" href="/ "><i class="material-icons">arrow_back</i></button> -->
+                <!-- ==================================== -->
             </div>
             <!-- sidcontaint -->
             <div class="sidcontaint">
