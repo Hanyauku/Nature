@@ -58,13 +58,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     </div>
                 </div>
                 <?php } ?>
-                <h2><?= $coordinates['latitude'] . "°N / " . $coordinates['longitude'] . "°W"?></h2>
-                <p><?= $this->lang->line('owner_location') ?></p>
-                <h4> <?= $this->session->userdata['username'] ?></h4>
-                <p><?= $this->lang->line('meter_location') ?></p>
-                <h4> <?= $coordinates['sqm'] . "m" ?><sup>2</sup></h4>
-                <p><?= $this->lang->line('adopted_location') ?></p>
-                <h4> <?= $sum['sum'] . "m" ?><sup>2</sup></h4>
+                <h5><?= $coordinates['latitude'] . "°N / " . $coordinates['longitude'] . "°W"?></h5>
+                <p class=loc><?= $this->lang->line('owner_location') ?></p>
+                <h6> <?= $this->session->userdata['username'] ?></h6>
+                <p class=loc><?= $this->lang->line('meter_location') ?></p>
+                <h6> <?= $coordinates['sqm'] . "m" ?><sup>2</sup></h6>
+                <p class=loc><?= $this->lang->line('adopted_location') ?></p>
+                <h6> <?= $sum['sum'] . "m" ?><sup>2</sup></h6>
                 <a href ="http://www.adopteerregenwoud.nl" class="logo"><img src="/img/logo.png" alt="Nature Logo"></a>
             </div>
         </div>
@@ -88,8 +88,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             // loads map
             var map;
             function initMap() {
+                var latit = <?php echo $coordinates['latitude']; ?>;
+                var longit = -<?php echo $coordinates['longitude']; ?>;
                 map = new google.maps.Map(document.getElementById('map'), {
-                    center: {lat: 10.037054, lng: -83.350640},
+                    center: {lat: latit, lng: longit},
                     zoom: 12.5,
                     mapTypeId: 'satellite',
                     mapTypeControl: false
