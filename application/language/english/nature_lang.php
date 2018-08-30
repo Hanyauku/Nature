@@ -52,3 +52,5 @@ $lang['goodjob_user'] = 'You adopted some pieces of rainforest, good job hero. N
 
 
 $lang['choose_user'] = 'Choose a way of selecting your square meters:';
+
+$lang['assign_location'] = 'Choose your square meters';

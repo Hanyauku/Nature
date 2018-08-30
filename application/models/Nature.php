@@ -51,4 +51,12 @@ class Nature extends CI_Model {
         WHERE location.latitude = ? AND location.longitude = ?";
         return $this->db->query($query, array($latitude, $longitude))->row_array();
     }
+    // inserts new location
+    public function pushlocation($new) {
+        $this->db->insert('location', $new);
+    }
+    // inserts new connection between user and location
+    public function connectuserlocation($data){
+        $this->db->insert('users_has_location', $data);
+    }
 }

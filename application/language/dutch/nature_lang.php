@@ -40,3 +40,5 @@ $lang['problem_user'] = 'Ik kan deze email niet vinden. Stuur me er nog een!';
 $lang['goodjob_user'] = 'Je hebt enkele stukken regenwoud geadopteerd, goed gedaan mijn held. Nu is het tijd om deze zelf toe te wijzen. Veel success met je leuke plek te vinden!';
 
 $lang['choose_user'] = 'Kies je eigen vierkante meters';
+
+$lang['assign_location'] = 'Kies je vierkante meters';

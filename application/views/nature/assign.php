@@ -32,27 +32,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <!-- sidcontaint -->
             <div class="sidcontaint">
                 <h4><?= $this->lang->line('hello_personal') . " " . $this->session->userdata('username') ?></h4>
-                <p><?= $this->lang->line('detail_personal') ?></p>
-                <table class="table">
-                    <tbody>
-                        <?php
-                            // create table with adopted coordinates
-                            foreach ($coordinates as $coordinate) { ?>
-                                <tr>
-                                    <td id="lat" value="<?= $coordinate['latitude'] ?>"><a href="/location/<?= $coordinate['id'] ?>"><?= $coordinate['latitude'] . "°N " ?></a></td>
-                                    <td id="long"><a href="/location/<?= $coordinate['id'] ?>"><?= $coordinate['longitude'] . "°W" ?></a></td>
-                                    <td><a href="/location/<?= $coordinate['id'] ?>"><?= $coordinate['sqm'] . "m" ?><sup>2</sup></a></td>
-                                    <td><a href="/location/<?= $coordinate['id'] ?>"><i class="fas fa-crosshairs"></i></a></td>
-                                </tr>
-                        <?php } ?>
-                    </tbody>
-                </table>
-                <form class="form-inline userpageform" action="/data/searchSecond" method="post">
-                    <?php if(!empty($this->session->flashdata('input_error'))) { ?>
-                        <h5> <?= $this->session->flashdata('input_error') ?> </h5> <?php ;
-                    }?>
-                    <input type="email" class="form-control userpagefield" id="email" placeholder="<?= $this->lang->line('email_index'); ?>" name="email">
-                    <button type="submit" class="btn btn-success "><?= $this->lang->line('find_index') ?></button>
+                <p><?= $this->lang->line('goodjob_user') ?></p>
+                <br>
+                <form class="form-inline" action="/assign/write" method="post">
+                    <button type="submit" class="btn btn-default "><?= $this->lang->line('assign_location') ?></button>
                 </form>
                 <a href ="http://www.adopteerregenwoud.nl" class="logo"><img src="/img/logo.png" alt="Nature Logo"></a>
             </div>
@@ -75,8 +58,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <!-- google map  -->
         <script>
             // load map
-            var map;
             var coord;
+            var markers = [];
             function initMap() {
                 map = new google.maps.Map(document.getElementById('map'), {
                     center: {lat: 10.037054, lng: -83.350640},
@@ -93,39 +76,67 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     fillcolor:"darkgreen",
                     strokeColor: "darkgreen"
                 });
-                <?php foreach ($coordinates as $coordinate) { ?>
-                    var lat = <?php echo $coordinate['latitude']; ?>;
-                    var long = -<?php echo $coordinate['longitude']; ?>;
-                    var myLatLng = {lat: lat, lng: long};
-                    var marker = new google.maps.Marker({
-                        position: myLatLng,
-                        map: map,
-                        title: lat + ', ' + long
-                    });
 
+                var marker = new google.maps.Rectangle({
+                    map: map,
+                    bounds: new google.maps.LatLngBounds(
+                    new google.maps.LatLng(10.007095, -83.350103),
+                    new google.maps.LatLng(09.990000, -83.250103)
+                    ),
+                    fillcolor:"white",
+                    strokeColor: "white",
+                    title: 'Chose Me'
+                });
 
-                    var longitude;
-                    var latitude;
-                    google.maps.event.addListener(marker, "click", function (event) {
+                var longitude;
+                var latitude;
+                google.maps.event.addListener(marker, "click", function (event) {
+                    //Event.preventDefault();
+                    var latitudeTemp = event.latLng.lat();
+                    latitude = latitudeTemp.toFixed(4);
+                    var longitudeTemp = -1 * event.latLng.lng();
+                    longitude = longitudeTemp.toFixed(4);
+                    console.log(latitude + ', ' + longitude);
+                    // Sets the map on all markers in the array.
+                      function setMapOnAll(map) {
+                        for (var i = 0; i < markers.length; i++) {
+                          markers[i].setMap(map);
+                        }
+                      }
 
-                        var latitudeTemp = event.latLng.lat();
-                        latitude = latitudeTemp.toFixed(4);
-                        var longitudeTemp = -1 * event.latLng.lng();
-                        longitude = longitudeTemp.toFixed(4);
-                        console.log(latitude + ', ' + longitude);
-                        $.ajax({
-                            method: "POST",
-                            url: "/locationoncklick",
-                            data: { lat: latitude, long: longitude },
-                            error: function() {
+                      // Removes the markers from the map, but keeps them in the array.
+                      function clearMarkers() {
+                        setMapOnAll(null);
+                      }
+
+                      // Deletes all markers in the array by removing references to them.
+                      function deleteMarkers() {
+                        clearMarkers();
+                        markers = [];
+                      }
+                    $.ajax({
+                        method: "POST",
+                        url: "/assign/savelocation",
+                        data: { lat: latitude, long: longitude },
+                        error: function() {
                             alert('Something is wrong');
-                            },
-                            success: function(data) {
-                               window.location.href="<?php echo base_url();?>/data/lastlocation";
-                            }
-                        })
-                    });
-                <?php } ?>
+                        },
+                        success: function() {
+                            // location.reload();
+                            deleteMarkers();
+                            var marker = new google.maps.Rectangle({
+                                map: map,
+                                bounds: new google.maps.LatLngBounds(
+                                new google.maps.LatLng(latitude, -longitude),
+                                new google.maps.LatLng(latitude - 0.005, -longitude + 0.005)
+                                ),
+                                fillcolor:"red",
+                                strokeColor: "red"
+                            });
+                            markers.push(marker);
+                        }
+                    })
+                });
             }
         </script>
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB6nhveJrJGLPkqa6gpSgbQVyssBWM63oc&callback=initMap"

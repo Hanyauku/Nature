@@ -40,7 +40,7 @@ ob_start();
                     <input type="email" class="form-control" id="email" placeholder="<?= $this->lang->line('email_index'); ?>" name="email">
                     <button type="submit" class="btn btn-default"><?= $this->lang->line('find_index'); ?></button>
                 </form>
-                <a href="http://www.adopteerregenwoud.nl/nl/adopteer/adopteer-regenwoud" class="btn round" role="button"><?= $this->lang->line('adopt_index'); ?></a>
+                <a href="/assign" class="btn round" role="button"><?= $this->lang->line('adopt_index'); ?></a>
                 <a href ="http://www.adopteerregenwoud.nl" class="logo"><img src="/img/logo.png" alt="Nature Logo"></a>
             </div>
         </div>
