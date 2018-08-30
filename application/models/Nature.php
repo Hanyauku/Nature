@@ -59,4 +59,11 @@ class Nature extends CI_Model {
     public function connectuserlocation($data){
         $this->db->insert('users_has_location', $data);
     }
+
+    // admin page login
+    public function findAdmin($email)
+        {
+            $query = 'SELECT * FROM admin WHERE admin_email = ?;';
+            return $this->db->query($query,$email)->row_array();
+        }
 }
