@@ -19,6 +19,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="/css/mijnstyle.css"/>
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     </head>
     <body>
         <!-- ====sidebar====== -->
@@ -75,6 +76,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <script>
             // load map
             var map;
+            var coord;
             function initMap() {
                 map = new google.maps.Map(document.getElementById('map'), {
                     center: {lat: 10.037054, lng: -83.350640},
@@ -82,7 +84,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     mapTypeId: 'satellite',
                     mapTypeControl: false
                 });
-                // draws square for addopted territory
                 var rectangle = new google.maps.Rectangle({
                     map: map,
                     bounds: new google.maps.LatLngBounds(
@@ -92,17 +93,37 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     fillcolor:"darkgreen",
                     strokeColor: "darkgreen"
                 });
-                // draws dots for each location adopted by user
                 <?php foreach ($coordinates as $coordinate) { ?>
                     var lat = <?php echo $coordinate['latitude']; ?>;
                     var long = -<?php echo $coordinate['longitude']; ?>;
-                    var circle = new google.maps.Circle({
+                    var myLatLng = {lat: lat, lng: long};
+                    var marker = new google.maps.Marker({
+                        position: myLatLng,
                         map: map,
-                        center: new google.maps.LatLng(lat, long),
-                        radius: 100,
-                        strokeColor: "white",
-                        fillColor:"white",
-                        fillOpacity: 100
+                        title: lat + ', ' + long
+                    });
+
+
+                    var longitude;
+                    var latitude;
+                    google.maps.event.addListener(marker, "click", function (event) {
+
+                        var latitudeTemp = event.latLng.lat();
+                        latitude = latitudeTemp.toFixed(4);
+                        var longitudeTemp = -1 * event.latLng.lng();
+                        longitude = longitudeTemp.toFixed(4);
+                        console.log(latitude + ', ' + longitude);
+                        $.ajax({
+                            method: "POST",
+                            url: "/locationoncklick",
+                            data: { lat: latitude, long: longitude },
+                            error: function() {
+                            alert('Something is wrong');
+                            },
+                            success: function(data) {
+                               window.location.href="<?php echo base_url();?>/data/lastlocation";
+                            }
+                        })
                     });
                 <?php } ?>
             }

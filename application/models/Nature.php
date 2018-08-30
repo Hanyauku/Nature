@@ -43,4 +43,12 @@ class Nature extends CI_Model {
         WHERE users_id = ?";
         return $this->db->query($query, $userid)->row_array();
     }
+
+    // returns location id by coordinates
+    public function getlocationid($latitude, $longitude) {
+        $query = "SELECT location.id
+        FROM location
+        WHERE location.latitude = ? AND location.longitude = ?";
+        return $this->db->query($query, array($latitude, $longitude))->row_array();
+    }
 }

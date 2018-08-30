@@ -65,4 +65,20 @@ class Data extends CI_Controller {
         $data['sum'] = $this->nature->calculatesqm($this->session->userdata['userid']);
         $this->load->view('nature/location', $data);
     }
+
+    public function clicklocation() {
+        $data = array(
+            'lat' => $this->input->post('lat'),
+            'long' => $this->input->post('long')
+        );
+        $this->session->set_userdata('location', $data);
+    }
+
+    public function lastlocation() {
+        $location = $this->session->userdata('location');
+        // find id the model
+        $this->load->model('nature');
+        $id = $this->nature->getlocationid($location['lat'], $location['long']);
+        $this->locationdata($id);
+    }
 }

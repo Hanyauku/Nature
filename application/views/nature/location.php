@@ -88,10 +88,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             // loads map
             var map;
             function initMap() {
-                var latit = <?php echo $coordinates['latitude']; ?>;
-                var longit = -<?php echo $coordinates['longitude']; ?>;
+                var lat = <?php echo $coordinates['latitude']; ?>;
+                var long = -<?php echo $coordinates['longitude']; ?>;
                 map = new google.maps.Map(document.getElementById('map'), {
-                    center: {lat: latit, lng: longit},
+                    center: {lat: lat, lng: long},
                     zoom: 12.5,
                     mapTypeId: 'satellite',
                     mapTypeControl: false
@@ -108,8 +108,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     strokeColor: "darkgreen"
                 });
                 // draws square for certain location
-                var lat = <?php echo $coordinates['latitude']; ?>;
-                var long = -<?php echo $coordinates['longitude']; ?>;
                 var rectangle = new google.maps.Rectangle({
                     map: map,
                     bounds: new google.maps.LatLngBounds(
