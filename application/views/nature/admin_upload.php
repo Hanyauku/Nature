@@ -25,24 +25,23 @@ ob_start();
         <div class="w3-sidebar w3-bar-block w3-green w3-animate-left"  style="width:390px" id="mySidebar">
             <!-- sidebar Banner buttons --><br>
             <div id="sidbarbaner">
-                
+
                 <button class="btn" onclick="w3_close()" ><i class="fa fa-close"></i></button>
             </div>
             <!-- sidcontaint -->
             <div class="sidcontaint">
                 <h3>Hello,Admin! </h3>
-                
+                <?php echo form_open_multipart('admin/upload');?>
 
-                <form class="form" action="/Data/admin" method="post">
-                    <?php if(!empty($this->session->flashdata('input_error'))) { ?>
-                        <h5> <?= $this->session->flashdata('input_error') ?> </h5> <?php ;
+                    <?php if(!empty($this->session->flashdata('image_error'))) { ?>
+                        <h5> <?= $this->session->flashdata('image_error') ?> </h5> <?php ;
                     }?>
-                    <input type="email" class="form-control" id="email" placeholder="Enter your e-mail address" name="admin_email">
-
-                    <input type="password" class="form-control" id="password" placeholder="Password" name="password"><br>
-                    <button type="submit" class="btn btn-default">Submit</button>
+                    <input type="text" class="form-control" placeholder="Latitude" name="latitude">
+                    <input type="text" class="form-control" placeholder="longitude" name="longitude">
+                    <input type="file" name="image" value="image">
+                    <button type="submit" class="btn btn-default" value="upload">Upload</button>
                 </form>
-                
+
                 <a href ="http://www.adopteerregenwoud.nl" class="logo"><img src="/img/Logo.png" alt="Nature Logo"></a>
             </div>
         </div>
@@ -87,6 +86,21 @@ ob_start();
                 google.maps.event.addListener (rectangle, "bounds_changed", function (){
                 document.getElementByid("info").innerHTML = rectangle.getBounds();
                 })
+
+                // show locations
+                <?php foreach ($coordinates as $coordinate) { ?>
+                    var lat = <?php echo $coordinate['latitude']; ?>;
+                    console.log(lat);
+                    var long = -<?php echo $coordinate['longitude']; ?>;
+                    console.log(long);
+                    var myLatLng = {lat: lat, lng: long};
+                    var marker = new google.maps.Marker({
+
+                        position: myLatLng,
+                        map: map,
+                        title: lat + ', ' + long
+                    });
+                <?php } ?>
                 }
         </script>
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB6nhveJrJGLPkqa6gpSgbQVyssBWM63oc&callback=initMap"

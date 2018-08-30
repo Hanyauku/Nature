@@ -6,7 +6,6 @@ class Admin extends CI_Controller {
     public function index() {
         $this->load->view('nature/admin_login');
     }
-
     public function login() {
 
         // validate input
@@ -72,7 +71,64 @@ class Admin extends CI_Controller {
     	if ($this->session->userdata('admin !== true')) {
     		redirect ('/admin/ ');
     	}
-    	$this->load->view('nature/admin_upload');
+        $this->load->model('nature');
+        $data['coordinates'] = $this->nature->getalllocations();
+    	$this->load->view('nature/admin_upload', $data);
     }
 
+    public function upload() {
+        // validation
+        $this->form_validation->set_rules('latitude', 'Latitude', 'trim|required|decimal|min_length[6]|max_length[7]');
+        $this->form_validation->set_rules('longitude', 'Longitude', 'trim|required|decimal|min_length[6]|max_length[7]');
+        if ($this->form_validation->run() === false) {
+            //show error
+			$this->session->set_flashdata('image_error', validation_errors());
+            redirect('/admin/load');
+		}
+        // check if location exists
+        $lat = $this->input->post('latitude');
+        $long = $this->input->post('longitude');
+        $this->load->model('nature');
+        // get location id
+        $id['id'] = $this->nature->getlocationid($lat, $long);
+        if (empty($id['id'])) {
+            // push new location to database
+            $location = array (
+                'latitude' => $lat,
+                'longitude' => $long
+            );
+            $this->nature->pushlocation($location);
+            $id['id'] = $this->nature->getlocationid($lat, $long);
+        }
+        // store uploaded file
+        $imagedata = $this->do_upload();
+        // push image to database
+        $image = array (
+            'link' => '/img/pics/' . $imagedata['upload_data']['orig_name'],
+            'location_id' => $id['id']['id']
+        );
+        $this->nature->uploadimage($image);
+        $this->session->set_flashdata('image_error', 'Your file have been successfully added');
+        redirect('/admin/load');
+    }
+
+    public function do_upload()
+    {
+            $config['upload_path']          = 'img/pics/';
+            $config['allowed_types']        = 'jpg|png';
+            $config['max_size']             = 30000;
+            $config['max_width']            = 15000;
+            $config['max_height']           = 15000;
+            $this->upload->initialize($config);
+
+            if ( ! $this->upload->do_upload('image'))
+            {
+                    $error = array('error' => $this->upload->display_errors());
+                    $this->session->set_flashdata('image_error', $error);
+            }
+            else
+            {
+                    return $data = array('upload_data' => $this->upload->data());
+            }
+    }
 }

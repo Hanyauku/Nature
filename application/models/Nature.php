@@ -66,4 +66,14 @@ class Nature extends CI_Model {
             $query = 'SELECT * FROM admin WHERE admin_email = ?;';
             return $this->db->query($query,$email)->row_array();
         }
+
+    public function uploadimage($array) {
+        $this->db->insert('media', $array);
+    }
+
+    public function getalllocations() {
+        $query = "SELECT location.latitude, location.longitude
+        FROM location";
+        return $this->db->query($query)->result_array();
+    }
 }
