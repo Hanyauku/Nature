@@ -2,7 +2,7 @@
      SIDEBAR STYLE
  ----------------------------------------------------- */
 
-.container .btn {
+.mapcontainer .btn {
     position: absolute;
     top: 35px;
     left: 35px;
@@ -27,11 +27,18 @@
     margin-right: 15px;
 }
 
+#sidbarbaner a {
+    /* ======lang button====== */
+    color: white;
+}
+
 #sidbarbaner .btn {
+    /* ======Clos button====== */
     background-color: #4CAF50;
     font-size: 25px;
     float: right;
     margin-top: -14px;
+    margin-left: 5px;
 }
 
 
@@ -68,8 +75,12 @@
     height: auto;
 }
 
+.sidcontaint form {
+    padding-bottom: 25px;
+}
+
 tr:hover {
-    background-color: green;
+    background-color: #419641;
 }
 
 
@@ -80,6 +91,8 @@ tr:hover {
 #map {
     height: 100%;
     width: 100%;
+    margin: 0;
+    padding: 0;
 }
 
 
@@ -95,7 +108,42 @@ html {
     padding: 0;
 }
 
-.container {
+.mapcontainer {
     height: 100%;
     width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.carousel-inner img {
+    max-width: 100%;
+    height: 300px !important;
+}
+
+a {
+    color: white;
+}
+
+.logo {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+}
+
+.logo img {
+    width: 150px;
+    height: auto;
+}
+
+.form-inline h5 {
+    color: #552B1D;
+}
+
+.userpagefield {
+    background-color: #419641;
+}
+
+.loc {
+    color: #22562f;
+    margin: 0;
 }
