@@ -18,12 +18,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
         <link rel="stylesheet" href="/css/mijnstyle.css"/>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
-
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
     </head>
     <body>
         <!-- ====sidebar====== -->
@@ -32,7 +31,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div id="sidbarbaner">
                 <a class="lang"><?= anchor("/pageloader/change/english","EN"); ?> | <?= anchor("/pageloader/change/dutch","NL"); ?></a>
                 <button class="btn" onclick="w3_close()" ><i class="fa fa-close"></i></button>
-                <!-- ==================================== -->
                 <div class="dropdown" style="margin-top: -16px;">
                    <button class="btn" type="button" data-toggle="dropdown" > <i class="material-icons">share</i>
                    <span class="caret"></span></button>
@@ -47,8 +45,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <button class="btn" onclick="javascript:window.history.go(-1);"><i class="material-icons">arrow_back</i></button>
                 <!-- <button class="btn" href="/ "><i class="material-icons">arrow_back</i></button> -->
                 <!-- ==================================== -->
-              
-
             </div>
             <!-- sidcontaint -->
             <div class="sidcontaint">
@@ -78,13 +74,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     </div>
                 </div>
                 <?php } ?>
-                <h5><?= $coordinates['latitude'] . "°N / " . $coordinates['longitude'] . "°W"?></h5>
-                <p class=loc><?= $this->lang->line('owner_location') ?></p>
-                <h6> <?= $this->session->userdata['username'] ?></h6>
-                <p class=loc><?= $this->lang->line('meter_location') ?></p>
-                <h6> <?= $coordinates['sqm'] . "m" ?><sup>2</sup></h6>
-                <p class=loc><?= $this->lang->line('adopted_location') ?></p>
-                <h6> <?= $sum['sum'] . "m" ?><sup>2</sup></h6>
+                <h5 style="margin-top: 10px;margin-bottom: 5%;"><?= $coordinates['latitude'] . "°N / " . $coordinates['longitude'] . "°W"?></h5>
+                
+                <p class=loc style="text-align:left;padding-left:25px;"><b><?= $this->lang->line('owner_location') ?></p></b>
+                <h5 style="text-align:left;padding-left:25px;"> <?= $this->session->userdata['username'] ?></h5>
+                <div>
+                    <div style="display: inline-block;padding-right: 100px;">
+                        <p class=loc><b><?= $this->lang->line('meter_location') ?></b></p>
+                        <h6> <?= $coordinates['sqm'] . "m" ?><sup>2</sup></h6>
+                    </div>
+                    <div style="display: inline-block;">
+                        <p class=loc><b><?= $this->lang->line('adopted_location') ?></b></p>
+                        <h6> <?= $sum['sum'] . "m" ?><sup>2</sup></h6>
+                    </div>
+                </div>
                 <a href ="http://www.adopteerregenwoud.nl" class="logo"><img src="/img/logo.png" alt="Nature Logo"></a>
             </div>
         </div>
@@ -108,10 +111,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             // loads map
             var map;
             function initMap() {
-                var latit = <?php echo $coordinates['latitude']; ?>;
-                var longit = -<?php echo $coordinates['longitude']; ?>;
+                var lat = <?php echo $coordinates['latitude']; ?>;
+                var long = -<?php echo $coordinates['longitude']; ?>;
                 map = new google.maps.Map(document.getElementById('map'), {
-                    center: {lat: latit, lng: longit},
+                    center: {lat: lat, lng: long},
                     zoom: 12.5,
                     mapTypeId: 'satellite',
                     mapTypeControl: false
@@ -128,8 +131,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     strokeColor: "darkgreen"
                 });
                 // draws square for certain location
-                var lat = <?php echo $coordinates['latitude']; ?>;
-                var long = -<?php echo $coordinates['longitude']; ?>;
                 var rectangle = new google.maps.Rectangle({
                     map: map,
                     bounds: new google.maps.LatLngBounds(
