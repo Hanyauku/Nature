@@ -42,7 +42,7 @@
 
  .sidcontaint {
      height: 60%;
-     margin: 25% 2%;
+     margin: 15% 2%;
      text-align: center;
  }
 
@@ -136,6 +136,7 @@ a {
 
 .userpagefield {
     background-color: #419641;
+    color: black;
 }
 
 .loc {
@@ -161,4 +162,10 @@ a {
 
 .btnadmin {
     margin-top: 15px;
+}
+
+.table-responsive {
+    height: 60%;
+    overflow: auto;
+    margin-bottom: 25px;
 }

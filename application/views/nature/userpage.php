@@ -33,6 +33,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="sidcontaint">
                 <h4><?= $this->lang->line('hello_personal') . " " . $this->session->userdata('username') ?></h4>
                 <p><?= $this->lang->line('detail_personal') ?></p>
+                <div class="table-responsive">
+
                 <table class="table">
                     <tbody>
                         <?php
@@ -47,6 +49,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <?php } ?>
                     </tbody>
                 </table>
+
+            </div>
                 <form class="form-inline userpageform" action="/data/searchSecond" method="post">
                     <?php if(!empty($this->session->flashdata('input_error'))) { ?>
                         <h5> <?= $this->session->flashdata('input_error') ?> </h5> <?php ;
