@@ -94,7 +94,7 @@ CREATE TABLE `media` (
 
 LOCK TABLES `media` WRITE;
 /*!40000 ALTER TABLE `media` DISABLE KEYS */;
-INSERT INTO `media` VALUES (4,'/img/pics/BlackcheekedwoodpeckerTenorio.jpg','2018-08-27 15:51:24','2018-08-27 15:51:24',1),(5,'/img/pics/BlackmandibledToucan.jpg','2018-08-27 15:51:25','2018-08-27 15:51:25',1),(6,'/img/pics/20160428 mapachesNPsimcha.jpg','2018-08-27 15:51:39','2018-08-27 15:51:39',2),(7,'/img/pics/BaltimoreorioleTenorio.jpg','2018-08-30 06:21:53','2018-08-30 06:21:53',2),(8,'/img/pics/20160428 Howlermonkeymelchior.jpeg','2018-08-30 06:24:48','2018-08-30 06:24:48',3),(9,'/img/pics/20160428 Krab.jpg','2018-08-30 06:26:27','2018-08-30 06:26:27',3),(10,'/img/pic/Brown pelicans, Corcovado.jpg','2018-08-30 21:18:38','2018-08-30 21:18:38',1),(11,'/img/pics/Catterpilar, cocles.jpg','2018-08-30 21:19:54','2018-08-30 21:19:54',2),(12,'/img/pics/Central American Squirrel Monkey, NP Corcovado.jpg','2018-08-30 21:20:38','2018-08-30 21:20:38',3);
+INSERT INTO `media` VALUES (4,'/img/pics/BlackcheekedwoodpeckerTenorio.jpg','2018-08-27 15:51:24','2018-08-27 15:51:24',1),(5,'/img/pics/BlackmandibledToucan.jpg','2018-08-27 15:51:25','2018-08-27 15:51:25',1),(6,'/img/pics/20160428 mapachesNPsimcha.jpg','2018-08-27 15:51:39','2018-08-27 15:51:39',2),(7,'/img/pics/BaltimoreorioleTenorio.jpg','2018-08-30 06:21:53','2018-08-30 06:21:53',2),(8,'/img/pics/20160428 Howlermonkeymelchior.jpeg','2018-08-30 06:24:48','2018-08-30 06:24:48',3),(9,'/img/pics/20160428 Krab.jpg','2018-08-30 06:26:27','2018-08-30 06:26:27',3),(12,'/img/pics/Central American Squirrel Monkey, NP Corcovado.jpg','2018-08-30 21:20:38','2018-08-30 21:20:38',3);
 /*!40000 ALTER TABLE `media` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -163,4 +163,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-08-31 13:29:25
+-- Dump completed on 2018-08-31 13:41:55
