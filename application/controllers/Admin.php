@@ -103,4 +103,9 @@ class Admin extends CI_Controller {
             return $data = array('upload_data' => $this->upload->data());
         }
     }
+    // logout
+    public function logout() {
+        $this->session->sess_destroy();
+        redirect('/pageloader/ ');
+    }
 }

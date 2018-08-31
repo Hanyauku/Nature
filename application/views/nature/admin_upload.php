@@ -25,8 +25,8 @@ ob_start();
         <div class="w3-sidebar w3-bar-block w3-green w3-animate-left"  style="width:390px" id="mySidebar">
             <!-- sidebar Banner buttons --><br>
             <div id="sidbarbaner">
-
                 <button class="btn" onclick="w3_close()" ><i class="fa fa-close"></i></button>
+                <a href="/admin/logout">Log Out</a>
             </div>
             <!-- sidcontaint -->
             <div class="sidcontaint">
