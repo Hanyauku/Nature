@@ -25,22 +25,22 @@ ob_start();
         <div class="w3-sidebar w3-bar-block w3-green w3-animate-left"  style="width:390px" id="mySidebar">
             <!-- sidebar Banner buttons --><br>
             <div id="sidbarbaner">
-                
+
                 <button class="btn" onclick="w3_close()" ><i class="fa fa-close"></i></button>
             </div>
             <!-- sidcontaint -->
             <div class="sidcontaint">
                 <h4><b>Welcome to Admin Page</b></h4>
-                <form class="form" action="/Admin/login" method="post">
+                <form class="form-inline" " action="/Admin/login" method="post">
                     <?php if(!empty($this->session->flashdata('input_error'))) { ?>
                         <h5> <?= $this->session->flashdata('input_error') ?> </h5> <?php ;
                     }?>
-                    <input type="email" class="form-control" id="email" placeholder="Enter your e-mail address" name="email">
+                    <input type="email" class="form-control" id="email" placeholder="Email" name="email">
 
                     <input type="password" class="form-control" id="password" placeholder="Password" name="password"><br>
                     <button type="submit" class="btn btn-default">Submit</button>
                 </form>
-                
+
                 <a href ="http://www.adopteerregenwoud.nl" class="logo"><img src="/img/Logo.png" alt="Nature Logo"></a>
             </div>
         </div>

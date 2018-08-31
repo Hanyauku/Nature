@@ -16,6 +16,33 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `admin`
+--
+
+DROP TABLE IF EXISTS `admin`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `admin` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `admin_email` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `admin`
+--
+
+LOCK TABLES `admin` WRITE;
+/*!40000 ALTER TABLE `admin` DISABLE KEYS */;
+INSERT INTO `admin` VALUES (1,'bomp@mail.nl','1234','2018-08-30 07:38:12','2018-08-30 07:38:12');
+/*!40000 ALTER TABLE `admin` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `location`
 --
 
@@ -29,7 +56,7 @@ CREATE TABLE `location` (
   `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
   `updated_at` datetime DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -38,7 +65,7 @@ CREATE TABLE `location` (
 
 LOCK TABLES `location` WRITE;
 /*!40000 ALTER TABLE `location` DISABLE KEYS */;
-INSERT INTO `location` VALUES (1,'10.0089','83.3567','2018-08-27 09:07:24','2018-08-27 09:07:24'),(2,'10.0592','83.3754','2018-08-27 09:10:29','2018-08-27 09:10:29'),(3,'10.0692','83.2639','2018-08-27 09:10:29','2018-08-27 09:10:29');
+INSERT INTO `location` VALUES (1,'10.0089','83.3567','2018-08-27 09:07:24','2018-08-27 09:07:24'),(2,'10.0518','83.3754','2018-08-27 09:10:29','2018-08-27 09:10:29'),(3,'10.0692','83.2639','2018-08-27 09:10:29','2018-08-27 09:10:29');
 /*!40000 ALTER TABLE `location` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -58,7 +85,7 @@ CREATE TABLE `media` (
   PRIMARY KEY (`id`),
   KEY `fk_media_location_idx` (`location_id`),
   CONSTRAINT `fk_media_location` FOREIGN KEY (`location_id`) REFERENCES `location` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -67,7 +94,7 @@ CREATE TABLE `media` (
 
 LOCK TABLES `media` WRITE;
 /*!40000 ALTER TABLE `media` DISABLE KEYS */;
-INSERT INTO `media` VALUES (4,'dacns','2018-08-27 15:51:24','2018-08-27 15:51:24',1),(5,'dcjsncnsj','2018-08-27 15:51:25','2018-08-27 15:51:25',1),(6,'vdmklndnlkkf','2018-08-27 15:51:39','2018-08-27 15:51:39',2);
+INSERT INTO `media` VALUES (4,'/img/pics/BlackcheekedwoodpeckerTenorio.jpg','2018-08-27 15:51:24','2018-08-27 15:51:24',1),(5,'/img/pics/BlackmandibledToucan.jpg','2018-08-27 15:51:25','2018-08-27 15:51:25',1),(6,'/img/pics/20160428 mapachesNPsimcha.jpg','2018-08-27 15:51:39','2018-08-27 15:51:39',2),(7,'/img/pics/BaltimoreorioleTenorio.jpg','2018-08-30 06:21:53','2018-08-30 06:21:53',2),(8,'/img/pics/20160428 Howlermonkeymelchior.jpeg','2018-08-30 06:24:48','2018-08-30 06:24:48',3),(9,'/img/pics/20160428 Krab.jpg','2018-08-30 06:26:27','2018-08-30 06:26:27',3),(10,'/img/pic/Brown pelicans, Corcovado.jpg','2018-08-30 21:18:38','2018-08-30 21:18:38',1),(11,'/img/pics/Catterpilar, cocles.jpg','2018-08-30 21:19:54','2018-08-30 21:19:54',2),(12,'/img/pics/Central American Squirrel Monkey, NP Corcovado.jpg','2018-08-30 21:20:38','2018-08-30 21:20:38',3);
 /*!40000 ALTER TABLE `media` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -136,4 +163,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-08-29  8:56:42
+-- Dump completed on 2018-08-31 13:29:25
