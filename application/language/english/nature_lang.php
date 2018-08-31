@@ -48,7 +48,7 @@ $lang['hello_user'] = 'We have sent you a mail with a link. By following this li
 $lang['problem_user'] = 'I cannot find this mail. Send me another one!';
 
 
-$lang['goodjob_user'] = 'You adopted some pieces of rainforest, good job hero. Now it is time to assign these, all by yourself. Good luck finding a nice spot!';
+$lang['goodjob_user'] = 'You adopted some pieces of rainforest, good job hero. Now it is time to assign these, all by yourself. Good luck finding a nice spot! You can choose any place within white area.';
 
 
 $lang['choose_user'] = 'Choose a way of selecting your square meters:';

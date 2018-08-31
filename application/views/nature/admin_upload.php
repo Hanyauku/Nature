@@ -90,9 +90,7 @@ ob_start();
                 // show locations
                 <?php foreach ($coordinates as $coordinate) { ?>
                     var lat = <?php echo $coordinate['latitude']; ?>;
-                    console.log(lat);
                     var long = -<?php echo $coordinate['longitude']; ?>;
-                    console.log(long);
                     var myLatLng = {lat: lat, lng: long};
                     var marker = new google.maps.Marker({
 

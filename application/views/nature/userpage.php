@@ -112,7 +112,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         latitude = latitudeTemp.toFixed(4);
                         var longitudeTemp = -1 * event.latLng.lng();
                         longitude = longitudeTemp.toFixed(4);
-                        console.log(latitude + ', ' + longitude);
                         $.ajax({
                             method: "POST",
                             url: "/locationoncklick",
