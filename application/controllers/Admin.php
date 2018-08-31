@@ -40,9 +40,10 @@ class Admin extends CI_Controller {
             }
         }
     }
+    // load upload page
     public function load(){
-        // load upload page
-    	if ($this->session->userdata('admin !== true')) {
+        // check if admin is registered
+    	if ($this->session->userdata('admin') !== true) {
     		redirect ('/admin/ ');
     	}
         $this->load->model('nature');

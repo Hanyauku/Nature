@@ -142,3 +142,23 @@ a {
     color: #22562f;
     margin: 0;
 }
+
+#admin {
+    text-align: center;
+}
+
+.admin {
+    display: inline-block;
+    width: 47%;
+    margin-bottom: 15px;
+}
+
+.image {
+    display: inline-block;
+    margin: 40px auto 18px auto;
+    width: 65%;
+}
+
+.btnadmin {
+    margin-top: 15px;
+}

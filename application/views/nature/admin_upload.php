@@ -30,16 +30,15 @@ ob_start();
             </div>
             <!-- sidcontaint -->
             <div class="sidcontaint">
-                <h3>Hello,Admin! </h3>
-                <?php echo form_open_multipart('admin/upload');?>
-
-                    <?php if(!empty($this->session->flashdata('image_error'))) { ?>
+                <h3>Hello, Admin! </h3>
+                <?php echo form_open_multipart('admin/upload', 'id="admin"');
+                    if(!empty($this->session->flashdata('image_error'))) { ?>
                         <h5> <?= $this->session->flashdata('image_error') ?> </h5> <?php ;
                     }?>
-                    <input type="text" class="form-control" placeholder="Latitude" name="latitude">
-                    <input type="text" class="form-control" placeholder="longitude" name="longitude">
-                    <input type="file" name="image" value="image">
-                    <button type="submit" class="btn btn-default" value="upload">Upload</button>
+                    <input type="file" name="image" value="image" class="image">
+                    <input type="text" class="form-control admin" placeholder="Latitude" name="latitude">
+                    <input type="text" class="form-control admin" placeholder="longitude" name="longitude">
+                    <button type="submit" class="btn btn-default btnadmin" value="upload">Upload</button>
                 </form>
 
                 <a href ="http://www.adopteerregenwoud.nl" class="logo"><img src="/img/Logo.png" alt="Nature Logo"></a>
