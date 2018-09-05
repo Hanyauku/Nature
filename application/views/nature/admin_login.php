@@ -31,14 +31,14 @@ ob_start();
             <!-- sidcontaint -->
             <div class="sidcontaint">
                 <h4><b>Welcome to Admin Page</b></h4>
-                <form class="form-inline" " action="/Admin/login" method="post">
+                <form class="form-inline"  action="/Admin/login" method="post">
                     <?php if(!empty($this->session->flashdata('input_error'))) { ?>
                         <h5> <?= $this->session->flashdata('input_error') ?> </h5> <?php ;
                     }?>
                     <input type="email" class="form-control" id="email" placeholder="Email" name="email">
 
                     <input type="password" class="form-control" id="password" placeholder="Password" name="password"><br>
-                    <button type="submit" class="btn btn-default">Submit</button>
+                    <button type="submit" class="btn btn-default">Submit</butto>
                 </form>
 
                 <a href ="http://www.adopteerregenwoud.nl" class="logo"><img src="/img/Logo.png" alt="Nature Logo"></a>

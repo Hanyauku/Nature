@@ -34,23 +34,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <h4><?= $this->lang->line('hello_personal') . " " . $this->session->userdata('username') ?></h4>
                 <p><?= $this->lang->line('detail_personal') ?></p>
                 <div class="table-responsive">
-
-                <table class="table">
-                    <tbody>
-                        <?php
-                            // create table with adopted coordinates
-                            foreach ($coordinates as $coordinate) { ?>
-                                <tr>
-                                    <td id="lat" value="<?= $coordinate['latitude'] ?>"><a href="/location/<?= $coordinate['id'] ?>"><?= $coordinate['latitude'] . "°N " ?></a></td>
-                                    <td id="long"><a href="/location/<?= $coordinate['id'] ?>"><?= $coordinate['longitude'] . "°W" ?></a></td>
-                                    <td><a href="/location/<?= $coordinate['id'] ?>"><?= $coordinate['sqm'] . "m" ?><sup>2</sup></a></td>
-                                    <td><a href="/location/<?= $coordinate['id'] ?>"><i class="fas fa-crosshairs"></i></a></td>
-                                </tr>
-                        <?php } ?>
-                    </tbody>
-                </table>
-
-            </div>
+                    <table class="table">
+                        <tbody>
+                            <?php
+                                // create table with adopted coordinates
+                                foreach ($coordinates as $coordinate) { ?>
+                                    <tr>
+                                        <td id="lat" value="<?= $coordinate['latitude'] ?>"><a href="/location/<?= $coordinate['id'] ?>"><?= $coordinate['latitude'] . "°N " ?></a></td>
+                                        <td id="long"><a href="/location/<?= $coordinate['id'] ?>"><?= $coordinate['longitude'] . "°W" ?></a></td>
+                                        <td><a href="/location/<?= $coordinate['id'] ?>"><?= $coordinate['sqm'] . "m" ?><sup>2</sup></a></td>
+                                        <td><a href="/location/<?= $coordinate['id'] ?>"><i class="fas fa-crosshairs"></i></a></td>
+                                    </tr>
+                            <?php } ?>
+                        </tbody>
+                    </table>
+                </div>
                 <form class="form-inline userpageform" action="/data/searchSecond" method="post">
                     <?php if(!empty($this->session->flashdata('input_error'))) { ?>
                         <h5> <?= $this->session->flashdata('input_error') ?> </h5> <?php ;
